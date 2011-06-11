@@ -33,51 +33,50 @@ class RatingsController < ApplicationController
   end
 
   # GET /ratings/1/edit
-  def edit
-    @rating = Rating.find(params[:id])
-  end
+  # def edit
+  #     @rating = Rating.find(params[:id])
+  #   end
 
   # POST /ratings
   # POST /ratings.xml
   def create
     @rating = Rating.new(params[:rating])
+    @rating.mp3tune_id = params[:mp3tune_id]
 
     respond_to do |format|
       if @rating.save
-        format.html { redirect_to(@rating, :notice => 'Rating was successfully created.') }
-        format.xml  { render :xml => @rating, :status => :created, :location => @rating }
+        format.html { redirect_to(mp3tunes_path, :notice => 'Rating was successfully created.') }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @rating.errors, :status => :unprocessable_entity }
+        format.html { render :action => "new", :notice => 'Errors prevented saving this rating' }
       end
     end
   end
 
   # PUT /ratings/1
   # PUT /ratings/1.xml
-  def update
-    @rating = Rating.find(params[:id])
-
-    respond_to do |format|
-      if @rating.update_attributes(params[:rating])
-        format.html { redirect_to(@rating, :notice => 'Rating was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @rating.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
+  # def update
+  #     @rating = Rating.find(params[:id])
+  # 
+  #     respond_to do |format|
+  #       if @rating.update_attributes(params[:rating])
+  #         format.html { redirect_to(@rating, :notice => 'Rating was successfully updated.') }
+  #         format.xml  { head :ok }
+  #       else
+  #         format.html { render :action => "edit" }
+  #         format.xml  { render :xml => @rating.errors, :status => :unprocessable_entity }
+  #       end
+  #     end
+  #   end
+  
   # DELETE /ratings/1
   # DELETE /ratings/1.xml
-  def destroy
-    @rating = Rating.find(params[:id])
-    @rating.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(ratings_url) }
-      format.xml  { head :ok }
-    end
-  end
+  # def destroy
+  #     @rating = Rating.find(params[:id])
+  #     @rating.destroy
+  #
+  #     respond_to do |format|
+  #       format.html { redirect_to(ratings_url) }
+  #       format.xml  { head :ok }
+  #     end
+  #   end
 end

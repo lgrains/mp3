@@ -16,6 +16,9 @@ module NavigationHelpers
       new_mp3tune_path
     when /the Mp3tunes Show Page for mp3 "(.+)"/
       mp3tune_path(Mp3tune.find_by_title($1))
+    when /the New Ratings page for "(.+)"/
+      new_mp3tune_rating_path(Mp3tune.find_by_title($1))
+
 
 
     # Add more mappings here.

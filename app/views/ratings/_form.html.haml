@@ -1,4 +1,4 @@
-= form_for mp3tune_ratings_path(@mp3tune) do |f|
+= form_for(:rating, :url => mp3tune_ratings_path(@mp3tune)) do |f|
   -if @rating.errors.any?
     #error_explanation
       %h2= "#{pluralize(@rating.errors.count, "error")} prohibited this rating from being saved:"
@@ -14,12 +14,7 @@
     %br
     on a scale of 1(I loathe it!)" to 5(Best Tune Ever!)
     
-  .demo
-    %p
-      %label{:for => "rating_value"} Your Rating
-      %input#rating_value{:style => "border:1px black solid; background-color:#f6931f; font-weight:bold;", :type => "text"}
-  
-    #slider
-  
+  .field
+    = f.select(:value, [["(1) I loathe it", 1],["(2) Slightly better than nothing", 2],["(3) I can take it or leave it", 3], ["(4) Awesome - play it again", 4],["(5) Best Tune Ever",5]], :selected => 3)
   .actions
     = f.submit 'Save'
