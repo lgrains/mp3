@@ -14,8 +14,12 @@
     %br
     on a scale of 1(I loathe it!)" to 5(Best Tune Ever!)
     
-  .field
-    = f.label :value
-    = f.text_field :value
+  .demo
+    %p
+      %label{:for => "rating_value"} Your Rating
+      %input#rating_value{:style => "border:1px black solid; background-color:#f6931f; font-weight:bold;", :type => "text"}
+  
+    #slider
+  
   .actions
     = f.submit 'Save'
