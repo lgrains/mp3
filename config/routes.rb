@@ -1,7 +1,9 @@
 Mp3::Application.routes.draw do
-  resources :ratings
 
-  resources :mp3tunes
+
+  resources :mp3tunes, :except => [:edit, :update] do
+    resources :ratings, :only => [:new, :create]
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

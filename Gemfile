@@ -27,6 +27,7 @@ group :development, :test, :cucumber do
   gem 'faker'
   gem 'launchy' # so you can do "Then show me the page"
   gem 'rails3-generators'
+  gem 'random_data'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'ruby-debug19', :require => 'ruby-debug'

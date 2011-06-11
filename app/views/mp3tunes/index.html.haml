@@ -11,14 +11,14 @@
     %th
 
   - @mp3tunes.each do |mp3tune|
-    %tr
+    %tr{:class => "mp3tune_#{mp3tune.id}"}
       %td= mp3tune.url
       %td= mp3tune.title
       %td= mp3tune.artist
       %td= mp3tune.length
       %td= link_to 'Show', mp3tune
-      %td= link_to 'Edit', edit_mp3tune_path(mp3tune)
       %td= link_to 'Destroy', mp3tune, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Rate this tune', new_mp3tune_rating_path(mp3tune)
 
 %br
 
