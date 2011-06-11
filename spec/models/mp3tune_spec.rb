@@ -6,6 +6,7 @@ describe Mp3tune do
 
   #associations
   it {should have_many :ratings}
+  it {should respond_to :playlist}
 
   #validations
   it {should validate_presence_of :url}

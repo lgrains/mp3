@@ -10,7 +10,6 @@ class RatingsController < ApplicationController
     end
   end
 
-
   def create
     @rating = Rating.new(params[:rating])
     @rating.mp3tune_id = params[:mp3tune_id]
@@ -23,6 +22,4 @@ class RatingsController < ApplicationController
       end
     end
   end
-
-
 end

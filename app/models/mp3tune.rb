@@ -2,6 +2,7 @@ class Mp3tune < ActiveRecord::Base
 
   #associations
   has_many :ratings, :dependent => :destroy
+  has_many :playlists, :through :playouts
 
   #validations
   validates_presence_of :url

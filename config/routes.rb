@@ -1,6 +1,10 @@
 Mp3::Application.routes.draw do
 
 
+  resources :playouts
+
+  resources :playlists, :only => [:new, :create]
+
   resources :mp3tunes, :except => [:edit, :update] do
     resources :ratings, :only => [:new, :create]
   end
