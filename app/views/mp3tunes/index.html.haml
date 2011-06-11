@@ -1,0 +1,25 @@
+%h1 Listing mp3tunes
+
+%table
+  %tr
+    %th Url
+    %th Title
+    %th Artist
+    %th Length
+    %th
+    %th
+    %th
+
+  - @mp3tunes.each do |mp3tune|
+    %tr
+      %td= mp3tune.url
+      %td= mp3tune.title
+      %td= mp3tune.artist
+      %td= mp3tune.length
+      %td= link_to 'Show', mp3tune
+      %td= link_to 'Edit', edit_mp3tune_path(mp3tune)
+      %td= link_to 'Destroy', mp3tune, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Mp3tune', new_mp3tune_path

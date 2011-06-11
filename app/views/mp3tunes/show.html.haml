@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Url:
+  = @mp3tune.url
+%p
+  %b Title:
+  = @mp3tune.title
+%p
+  %b Artist:
+  = @mp3tune.artist
+%p
+  %b Length:
+  = @mp3tune.length
+
+= link_to 'Edit', edit_mp3tune_path(@mp3tune)
+\|
+= link_to 'Back', mp3tunes_path

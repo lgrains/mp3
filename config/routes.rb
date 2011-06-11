@@ -1,4 +1,8 @@
 Mp3::Application.routes.draw do
+  resources :ratings
+
+  resources :mp3tunes
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
