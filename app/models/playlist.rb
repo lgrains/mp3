@@ -1,5 +1,5 @@
 class Playlist < ActiveRecord::Base
 
   #associations
-  has_many :mp3tunes, :through => :playouts
+  has_and_belongs_to_many :mp3tunes
 end

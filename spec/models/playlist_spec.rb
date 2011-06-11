@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe Playlist do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { Factory(:playlist)}
+  it {should be_valid }
+
+  #associations
+  it {should have_and_belong_to_many :mp3tunes}
+
 end

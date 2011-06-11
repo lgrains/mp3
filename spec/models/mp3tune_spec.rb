@@ -5,8 +5,8 @@ describe Mp3tune do
   it {should be_valid }
 
   #associations
-  it {should have_many :ratings}
-  it {should respond_to :playlist}
+  it {should have_many(:ratings).dependent(:destroy)}
+  it {should have_and_belong_to_many :playlists}
 
   #validations
   it {should validate_presence_of :url}

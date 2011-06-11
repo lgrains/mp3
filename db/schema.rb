@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110611192840) do
+ActiveRecord::Schema.define(:version => 20110611195542) do
 
   create_table "mp3tunes", :force => true do |t|
     t.string   "url"
@@ -21,17 +21,13 @@ ActiveRecord::Schema.define(:version => 20110611192840) do
     t.datetime "updated_at"
   end
 
-  create_table "playlists", :force => true do |t|
-    t.string   "format"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "mp3tunes_playlists", :id => false, :force => true do |t|
+    t.integer "mp3tunes_id",  :null => false
+    t.integer "playlists_id", :null => false
   end
 
-  create_table "playouts", :force => true do |t|
-    t.datetime "date_played"
-    t.integer  "user_id"
-    t.integer  "mp3tune_id"
-    t.integer  "playlist_id"
+  create_table "playlists", :force => true do |t|
+    t.string   "format"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

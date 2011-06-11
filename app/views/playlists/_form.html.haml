@@ -1,4 +1,5 @@
-= form_for @playlist do |f|
+
+= form_for :playlist, :url => playlists_path do |f|
   -if @playlist.errors.any?
     #error_explanation
       %h2= "#{pluralize(@playlist.errors.count, "error")} prohibited this playlist from being saved:"
@@ -7,7 +8,14 @@
           %li= msg
 
   .field
-    = f.label :format
-    = f.text_field :format
+    = f.label :artist_name
+    = check_box_tag  :artist_name
+    = select_tag 'artist',options_from_collection_for_select(@artists, "id", "artist")
+    
+  .field
+    = f.label :minimum_rating
+    = check_box_tag :minimum_rating
+    = select_tag 'min_rating', options_for_select([1,2,3,4,5], 3)
+    
   .actions
     = f.submit 'Save'
