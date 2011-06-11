@@ -10,12 +10,12 @@
   .field
     = f.label :artist_name
     = check_box_tag  :artist_name
-    = select_tag 'artist',options_from_collection_for_select(@artists, "id", "artist")
+    = select_tag 'artist',options_from_collection_for_select(@artists, "id", "artist", 0)
     
   .field
     = f.label :minimum_rating
     = check_box_tag :minimum_rating
-    = select_tag 'min_rating', options_for_select([1,2,3,4,5], 3)
+    = select_tag 'min_rating', options_for_select([["N/R",0],1,2,3,4,5], "N/R")
     
   .actions
     = f.submit 'Save'

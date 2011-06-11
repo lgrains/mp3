@@ -26,7 +26,9 @@ class PlaylistsController < ApplicationController
   def new
     @playlist = Playlist.new
     @artists = Mp3tune.select(:id).select(:artist)
+    debugger
     @option_tags = {}
+    @option_tags[0] = "--Choose One--"
     5.times do |i|
       @option_tags[i+1] = i+1
     end
@@ -45,15 +47,16 @@ class PlaylistsController < ApplicationController
   # POST /playlists
   # POST /playlists.xml
   def create
+    debugger
+    if params[:artist_name]
+      artist_to_use = Mp3tune.where("artist = ?", Mp3tune.find(params[:artist]))
     @playlist = Playlist.new(params[:playlist])
 
     respond_to do |format|
       if @playlist.save
-        format.html { redirect_to(@playlist, :notice => 'Playlist was successfully created.') }
-        format.xml  { render :xml => @playlist, :status => :created, :location => @playlist }
+        format.html { redirect_to(new_playlist_path, :notice => 'Playlist was successfully created.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @playlist.errors, :status => :unprocessable_entity }
       end
     end
   end

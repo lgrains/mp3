@@ -2,6 +2,8 @@ $(document).ready(function(){
 
   $("#artist").css("display","none");
   $("#min_rating").css("display","none");
+  $("#artist_name").attr('checked', false)
+  $("#minimum_rating").attr('checked', false)
 
   $("#artist_name").click(function(){
     if ($("#artist_name").is(":checked")){
