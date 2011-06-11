@@ -2,5 +2,5 @@
 
 Factory.define :rating do |f|
   f.association :mp3tune, :factory => :mp3tune
-  f.value rand(4)+1
+  f.sequence(:value) {|n| rand(n) % 5 + 1}
 end

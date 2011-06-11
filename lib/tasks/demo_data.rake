@@ -9,8 +9,8 @@ namespace :db do
     Dir[Rails.root.join("spec/factories/*.rb")].each {|f| require f}
 
     #configuration values:
-    num_tunes     =20
-    num_ratings_per_tune = 39
+    num_tunes = 20
+    num_ratings_per_tune = rand(20)
 
     #create tunes
     num_tunes.times do

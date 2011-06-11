@@ -1,14 +1,19 @@
-= form_for @rating do |f|
+= form_for mp3tune_ratings_path(@mp3tune) do |f|
   -if @rating.errors.any?
     #error_explanation
       %h2= "#{pluralize(@rating.errors.count, "error")} prohibited this rating from being saved:"
       %ul
         - @rating.errors.full_messages.each do |msg|
           %li= msg
-
+          
   .field
-    = f.label :mp3tune_id
-    = f.text_field :mp3tune_id
+    Rate 
+    %b= @mp3tune.title
+    by artist
+    %b= @mp3tune.artist
+    %br
+    on a scale of 1(I loathe it!)" to 5(Best Tune Ever!)
+    
   .field
     = f.label :value
     = f.text_field :value

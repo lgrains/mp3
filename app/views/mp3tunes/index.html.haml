@@ -2,6 +2,7 @@
 
 %table
   %tr
+    %th Rating
     %th Url
     %th Title
     %th Artist
@@ -12,6 +13,7 @@
 
   - @mp3tunes.each do |mp3tune|
     %tr{:class => "mp3tune_#{mp3tune.id}"}
+      %td#rating= (mp3tune.rating_value == 0 ? "N/R" : number_with_precision(mp3tune.rating_value, :precision => 2))
       %td= mp3tune.url
       %td= mp3tune.title
       %td= mp3tune.artist

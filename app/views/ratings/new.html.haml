@@ -1,5 +1,7 @@
 %h1 New rating
 
+- @mp3tune = Mp3tune.find(params[:mp3tune_id])
+
 = render 'form'
 
-= link_to 'Back', ratings_path
+= link_to 'Back', mp3tunes_path

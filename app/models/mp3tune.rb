@@ -1,7 +1,7 @@
 class Mp3tune < ActiveRecord::Base
 
   #associations
-  has_many :ratings
+  has_many :ratings, :dependent => :destroy
 
   #validations
   validates_presence_of :url
@@ -11,7 +11,8 @@ class Mp3tune < ActiveRecord::Base
   validates_numericality_of :length
 
   def rating_value
-    self.ratings.inject(0){|sum,r| sum += r.value}
+    total = self.ratings.inject(0){|sum,r| sum += r.value}
+    self.ratings.size == 0 ? 0 : total.to_f/self.ratings.size
   end
 
 
