@@ -25,10 +25,8 @@ class PlaylistsController < ApplicationController
   # GET /playlists/new.xml
   def new
     @playlist = Playlist.new
-    @artists = Mp3tune.select(:id).select(:artist)
-    debugger
+    @artists = Mp3tune.select(:id).select(:artist).group(:artist)
     @option_tags = {}
-    @option_tags[0] = "--Choose One--"
     5.times do |i|
       @option_tags[i+1] = i+1
     end
@@ -49,8 +47,19 @@ class PlaylistsController < ApplicationController
   def create
     debugger
     if params[:artist_name]
-      artist_to_use = Mp3tune.where("artist = ?", Mp3tune.find(params[:artist]))
-    @playlist = Playlist.new(params[:playlist])
+      #params[:artist] is the mp3tunes.id number
+      mp3list = Mp3tune.where("artist = ?",Mp3tune.find(params[:artist]).artist)
+    end
+    if params[:minimum_rating]
+      #find all mp3's with rating >= params[:min_rating]
+      Mp3tune.all.each do |tune|
+        if tune.rating_value >= params[:min_rating]
+          mp3list << tune unless mp3list.include?(tune)
+        end
+      end
+    end
+    @playlist = Playlist.new
+    @playlist.mp3tunes << mp3list
 
     respond_to do |format|
       if @playlist.save
