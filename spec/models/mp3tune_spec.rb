@@ -6,7 +6,7 @@ describe Mp3tune do
 
   #associations
   it {should have_many(:ratings).dependent(:destroy)}
-  it {should have_and_belong_to_many :playlists}
+  it {should belong_to :playlists}
 
   #validations
   it {should validate_presence_of :url}
@@ -15,7 +15,7 @@ describe Mp3tune do
   it {should validate_presence_of :length}
   it {should validate_numericality_of :length}
 
-  describe "#rating_value" do
+  describe "#average_rating" do
     before do
       5.times do |i|
         Factory(:rating, :mp3tune => subject, :value => 4)
@@ -23,7 +23,7 @@ describe Mp3tune do
     end
 
     it "should equal 4" do
-      subject.rating_value.should.eql?(4)
+      subject.average_rating.should.eql?(4)
     end
 
     it "should equal 2.6" do
@@ -33,7 +33,7 @@ describe Mp3tune do
       (3..4).each do |i|
         subject.ratings[i].value = i + 1
       end
-      subject.rating_value.should.eql?(2.6)
+      subject.average_rating.should.eql?(2.6)
     end
 
 

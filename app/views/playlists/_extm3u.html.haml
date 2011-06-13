@@ -1,0 +1,7 @@
+&#35;EXTM3U
+%br
+- @playlist.each do |tune|
+  = "#EXTINF:#{tune.length},#{tune.artist} - #{tune.title}"
+  %br
+  =  tune.url
+  %br

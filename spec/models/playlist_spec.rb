@@ -5,6 +5,6 @@ describe Playlist do
   it {should be_valid }
 
   #associations
-  it {should have_and_belong_to_many :mp3tunes}
+  it {should have_many :mp3tunes}
 
 end
