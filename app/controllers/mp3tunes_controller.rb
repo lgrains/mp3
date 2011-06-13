@@ -11,8 +11,6 @@ class Mp3tunesController < ApplicationController
     end
   end
 
-  # GET /mp3tunes/1
-  # GET /mp3tunes/1.xml
   def show
     @mp3tune = Mp3tune.find(params[:id])
 
@@ -45,9 +43,6 @@ class Mp3tunesController < ApplicationController
     end
   end
 
-
-  # DELETE /mp3tunes/1
-  # DELETE /mp3tunes/1.xml
   def destroy
     @mp3tune = Mp3tune.find(params[:id])
     @mp3tune.destroy
