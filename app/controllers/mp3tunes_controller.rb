@@ -48,7 +48,7 @@ class Mp3tunesController < ApplicationController
     @mp3tune.destroy
 
     respond_to do |format|
-      format.html { redirect_to(mp3tunes_url) }
+      format.html { redirect_to(mp3tunes_url,:notice => 'Mp3tune was successfully removed.') }
       format.xml  { head :ok }
     end
   end

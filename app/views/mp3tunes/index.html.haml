@@ -23,7 +23,7 @@
       %td= mp3tune.artist
       %td= mp3tune.length
       %td= link_to 'Show', mp3tune
-      %td= link_to 'Destroy', mp3tune, :confirm => 'Are you sure?', :method => :delete
+      %td= button_to 'Remove', mp3tune, :confirm => 'Are you sure?', :method => :delete
       %td= link_to 'Rate this tune', new_mp3tune_rating_path(mp3tune)
 
 %br
