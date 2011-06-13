@@ -8,7 +8,7 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /the home\s?page/
+    when /the Home\s?Page/
       '/'
     when /the Mp3tunes Index Page/
       mp3tunes_path

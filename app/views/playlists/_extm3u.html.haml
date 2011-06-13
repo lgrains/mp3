@@ -1,7 +1,10 @@
-&#35;EXTM3U
-%br
-- @playlist.each do |tune|
-  = "#EXTINF:#{tune.length},#{tune.artist} - #{tune.title}"
+=link_to "Back",  new_playlist_path
+
+%p
+  &#35;EXTM3U
   %br
-  =  tune.url
-  %br
+  - @playlist.each do |tune|
+    = "#EXTINF:#{tune.length},#{tune.artist} - #{tune.title}"
+    %br
+    =  tune.url
+    %br

@@ -2,3 +2,8 @@
 .hidden {
   display: none;
 }
+
+/* line 4, ../../app/stylesheets/application.sass */
+body {
+  background-image: url("../images/music_bg-lt.jpg");
+}

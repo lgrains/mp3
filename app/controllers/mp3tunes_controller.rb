@@ -1,4 +1,6 @@
 class Mp3tunesController < ApplicationController
+
+  layout 'application'
   # GET /mp3tunes
   # GET /mp3tunes.xml
   def index
