@@ -54,6 +54,5 @@ Feature:  As a user,
       And I select "4" from "min_rating"
       And I press "Create Playlist"
       Then I should be on the Playlists Index Page
-      And show me the page
       And I should see the lines "#EXTM3U;EXTINF:280,Tom Dooley - Bingo was his name;www.example.com/tune1;EXTINF:214,Barb Jones - Jumping Jacks;www.example.com/tune2;EXTINF:120,Tom Dooley - My toaster is black;www.example.com/tune4;EXTINF:1800,Chesley Stehr - Dolore Magnificat;www.example.com/tune7" in the playlist
       And I should not see the lines "EXTINF:189,Maribel Hartmann - Love is;www.example.com/tune3;EXTINF:60,Fredrick Chopin - Minute Waltz;www.example.com/tune5;EXTINF:150,Eve Martin - Hip Hop Hurray;www.example.com/tune6" in the playlist

@@ -11,9 +11,6 @@ class Mp3tune < ActiveRecord::Base
   validates_presence_of :length
   validates_numericality_of :length
 
-  #scopes
-  #scope :random_by_rating, lambda { |num| where('average_rating >= ?', num)  }
-
   def average_rating
     ratings.average(:value).to_f
   end
