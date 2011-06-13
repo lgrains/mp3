@@ -9,7 +9,7 @@ Feature:  As a user
 
   Scenario: User deletes a song
     When I go to the Mp3tunes Index Page
-    And I follow "Destroy"
-    Then I should be on the Mp3tunes Index Page
+    And I press "Remove"
+    Then I should see "Mp3tune was successfully removed."
     Then the Mp3tune with title "Bingo was his name" is not in the database
     And I should not see "Bingo was his name"
