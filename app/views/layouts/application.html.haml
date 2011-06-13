@@ -11,6 +11,13 @@
 
     = csrf_meta_tag
   %body
+    .notice
+      =flash[:notice]
+    .alert
+      =flash[:alert]
+    .error
+      =flash[:error]
+    
     = yield
 
   = javascript_include_tag "jquery-ui.min", "jquery.min"

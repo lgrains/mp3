@@ -7,3 +7,12 @@
 body {
   background-image: url("../images/music_bg-lt.jpg");
 }
+/* line 7, ../../app/stylesheets/application.sass */
+body .notice {
+  color: green;
+  padding-left: 5px;
+}
+/* line 12, ../../app/stylesheets/application.sass */
+body .alert, body .error, body .field_with_errors {
+  color: red;
+}

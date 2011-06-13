@@ -1,8 +1,7 @@
 class Mp3tunesController < ApplicationController
 
   layout 'application'
-  # GET /mp3tunes
-  # GET /mp3tunes.xml
+
   def index
     @mp3tunes = Mp3tune.all
 
@@ -23,8 +22,6 @@ class Mp3tunesController < ApplicationController
     end
   end
 
-  # GET /mp3tunes/new
-  # GET /mp3tunes/new.xml
   def new
     @mp3tune = Mp3tune.new
 
@@ -34,13 +31,6 @@ class Mp3tunesController < ApplicationController
     end
   end
 
-  # GET /mp3tunes/1/edit
-  def edit
-    @mp3tune = Mp3tune.find(params[:id])
-  end
-
-  # POST /mp3tunes
-  # POST /mp3tunes.xml
   def create
     @mp3tune = Mp3tune.new(params[:mp3tune])
 
@@ -55,21 +45,6 @@ class Mp3tunesController < ApplicationController
     end
   end
 
-  # PUT /mp3tunes/1
-  # PUT /mp3tunes/1.xml
-  def update
-    @mp3tune = Mp3tune.find(params[:id])
-
-    respond_to do |format|
-      if @mp3tune.update_attributes(params[:mp3tune])
-        format.html { redirect_to(@mp3tune, :notice => 'Mp3tune was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @mp3tune.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /mp3tunes/1
   # DELETE /mp3tunes/1.xml
