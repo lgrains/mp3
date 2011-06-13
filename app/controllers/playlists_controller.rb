@@ -1,7 +1,7 @@
 class PlaylistsController < ApplicationController
 
   def new
-    @artists = Mp3tune.select(:id).select(:artist).group(:artist)
+    @artists = Mp3tune.select(:id).select(:artist).group(:id).group(:artist)
     @option_tags = {}
     5.times do |i|
       @option_tags[i+1] = i+1
