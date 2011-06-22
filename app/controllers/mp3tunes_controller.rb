@@ -3,8 +3,11 @@ class Mp3tunesController < ApplicationController
   layout 'application'
 
   def index
-    @mp3tunes = Mp3tune.all
-
+    @rating = Hash.new
+    @mp3tunes = Mp3tune.includes(:ratings)
+    @mp3tunes.each do |mp3|
+      @rating[mp3.id] = (mp3.ratings.inject(0.0){|sum, rating| sum += rating.value})/mp3.ratings.size
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @mp3tunes }

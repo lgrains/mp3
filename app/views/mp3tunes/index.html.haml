@@ -17,7 +17,7 @@
 
   - @mp3tunes.each do |mp3tune|
     %tr{:class => "mp3tune_#{mp3tune.id}"}
-      %td#rating= (mp3tune.average_rating == 0 ? "N/R" : number_with_precision(mp3tune.average_rating, :precision => 2))
+      %td#rating= (@rating[mp3tune.id] == 0 || @rating[mp3tune.id].nan?  ? "N/R" : number_with_precision(@rating[mp3tune.id], :precision => 2))
       %td= mp3tune.url
       %td= mp3tune.title
       %td= mp3tune.artist

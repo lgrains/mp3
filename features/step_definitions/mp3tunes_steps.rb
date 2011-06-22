@@ -39,5 +39,9 @@ Then /^the Mp3tune with title "([^"]*)" is not in the database$/ do |title|
   mp3.should be_nil
 end
 
+Then /^I should see a rating of "([^"]*)" for "([^"]*)"$/ do |rating, title|
+  mp3 = Mp3tune.find_by_title(title)
+  Then %{I should see "#{rating}" within ".mp3tune_#{mp3.id}"}
+end
 
 

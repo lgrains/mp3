@@ -18,4 +18,24 @@ Feature: As a user
     When I go to the Mp3tunes Index Page
     Then I should see all my mp3tunes
 
+  Scenario: users can view ratings of tunes on the index page
+    Given the following ratings exist:
+      | title              |value  |
+      |Bingo was his name   | 3     |
+      |Bingo was his name   | 4     |
+      |Bingo was his name   | 4     |
+      |Bingo was his name   | 4     |
+      |Bingo was his name   | 2     |
+      |Bingo was his name   | 4     |
+      | My toaster is black | 2     |
+      | My toaster is black | 2     |
+      | My toaster is black | 1     |
+      | Hip Hop Hurray      | 4     |
+    When I go to the Mp3tunes Index Page
+    Then show me the page
+    Then I should see a rating of "3.50" for "Bingo was his name"
+    And I should see a rating of "1.67" for "My toaster is black"
+    And I should see a rating of "4.00" for "Hip Hop Hurray"
+
+
 

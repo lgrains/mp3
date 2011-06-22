@@ -9,4 +9,12 @@ Given /^mp3tune "([^"]*)" has ratings with values "([^"]*)"$/ do |title, list|
   end
 end
 
+Given /^the following ratings exist:$/ do |table|
+  table.hashes.each do |hash|
+    Factory(:rating, :mp3tune => Mp3tune.find_by_title(hash[:title]), :value => hash[:value])
+  end
+end
+
+
+
 
