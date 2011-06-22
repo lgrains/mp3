@@ -32,7 +32,6 @@ Feature: As a user
       | My toaster is black | 1     |
       | Hip Hop Hurray      | 4     |
     When I go to the Mp3tunes Index Page
-    Then show me the page
     Then I should see a rating of "3.50" for "Bingo was his name"
     And I should see a rating of "1.67" for "My toaster is black"
     And I should see a rating of "4.00" for "Hip Hop Hurray"
