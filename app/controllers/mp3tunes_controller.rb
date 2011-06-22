@@ -6,7 +6,7 @@ class Mp3tunesController < ApplicationController
     @rating = Hash.new
     @mp3tunes = Mp3tune.includes(:ratings)
     @mp3tunes.each do |mp3|
-      @rating[mp3.id] = (mp3.ratings.inject(0.0){|sum, rating| sum += rating.value})/mp3.ratings.size
+      @rating[mp3.id] = mp3.average_rating
     end
     respond_to do |format|
       format.html # index.html.erb

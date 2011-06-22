@@ -11,9 +11,9 @@ class Mp3tune < ActiveRecord::Base
   validates_presence_of :length
   validates_numericality_of :length
 
-  # def average_rating
-  #   ratings.average(:value).to_f
-  # end
+  def average_rating
+    self.ratings.size > 0 ? (self.ratings.inject(0.0){|sum, rating| sum += rating.value})/self.ratings.size :  0
+  end
 
   def self.random_by_artist(mp3_id)
     artist = Mp3tune.find(mp3_id).artist
